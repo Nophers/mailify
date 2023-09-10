@@ -1,0 +1,1 @@
+export { disposable } from "./mailify";
