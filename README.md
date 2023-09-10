@@ -1,5 +1,5 @@
 # Mailify
-Validate emails by checking if they are disposed or not.
+Validate emails by checking if they are a disposable email or not.
 
 > The types of disposable email addresses
 
@@ -21,33 +21,7 @@ First install mailify by running:
 ```
 npm i mailify
 ```
-
-- A basic check that returns JSON 
-> TypeScript
-```ts
-import { disposable } from "mailify";
-
-const email = "lol@yopmail.com";
-
-disposable(email).then(console.log);
-```
-
-> JavaScript
-```js
-const { disposable } = require("mailify");
-
-const email = "lol@yopmail.com";
-
-disposable(email).then(console.log);
-```
-
-Returns either:
-
-`{ disposable: true }` or `{ disposable: false`
-
-<hr>
-
-- An advanced query without JSON (production)
+### Usage
 
 > TypeScript
 ```ts
@@ -56,12 +30,12 @@ import { disposable } from "mailify";
 const data = "the@email.com";
 
 (async () => {
-    const check = await disposed(data);
+    const check = await disposable(data);
     if (check.disposable) {
-      console.log("Email is disposed!");
+      console.log("Email is a disposable email, watch out!");
       // do something 
     } else {
-      console.log("Email is NOT disposable.");
+      console.log("Email is fine.");
       // do something else
     }    
 })();
@@ -76,14 +50,18 @@ const data = "the@email.com";
 (async () => {
     const check = await disposable(data);
     if (check.disposable) {
-      console.log("Email is disposable!");
+      console.log("Email is dirty, keep it out here!");
       // do something
     } else {
-      console.log("Email is NOT disposable.");
+      console.log("Email is fine.");
       // do something else
     }    
 })();
 ```
+
+If you log the check, it returns one of the following: 
+
+`{ disposable: true }` or `{ disposable: false`
 
 ### 🤷🏼‍♂️ Why?
 
