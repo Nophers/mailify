@@ -1,2 +1,2 @@
 export { disposable } from "./mailify";
-export type { Disposable } from "./types";
+export type { DisposableType } from "./types";

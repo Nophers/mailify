@@ -1,5 +1,5 @@
-export type Disposable = (email: string) => Promise<boolean>;
+export type DisposableType = (email: string) => Promise<boolean>;
 
 export declare module "mailify" {
-    export const disposable: Disposable;
+    export const disposable: DisposableType;
 }
